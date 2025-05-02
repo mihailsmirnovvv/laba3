@@ -1,16 +1,18 @@
 CC = gcc
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -g -Wall -Wextra -I. -Imongoose
+SRC = src/main.c src/handlers.c mongoose/mongoose.c
+TARGET = time_calculator
 LIBS = -lssl -lcrypto
 
-all: time_calculator
+all: $(TARGET)
 
-time_calculator: main.c mongoose/mongoose.c
+$(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	rm -f time_calculator
+	rm -f $(TARGET)
 
-run: time_calculator
-	./time_calculator
+run: $(TARGET)
+	./$(TARGET)
 
 .PHONY: all clean run
