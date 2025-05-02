@@ -1,17 +1,16 @@
-CC     = gcc
-CFLAGS = -Wall -Wextra -I./lib -I./input
-SRCS   = main.c mongoose/mongoose.c input/input.c
-OUT    = server
+CC = gcc
+CFLAGS = -g -Wall -Wextra
+LIBS = -lssl -lcrypto
 
-.PHONY: all run clean
+all: time_calculator
 
-all: $(OUT)
-
-$(OUT): $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(OUT)
-
-run: $(OUT)
-	./$(OUT)
+time_calculator: main.c mongoose.c
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	rm -f $(OUT)
+	rm -f time_calculator
+
+run: time_calculator
+	./time_calculator
+
+.PHONY: all clean run

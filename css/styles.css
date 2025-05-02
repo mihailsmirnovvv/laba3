@@ -1,111 +1,75 @@
-* {
-  box-sizing: border-box; /* Устанавливает модель расчета размеров элементов так, чтобы padding и border включались в общую ширину и высоту */
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Устанавливает шрифт для всей страницы */
-  background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Устанавливает градиентный фон под углом 135 градусов */
-  display: flex; /* Включает флексбокс для выравнивания содержимого */
-  align-items: center; /* Центрирует содержимое по вертикали */
-  justify-content: center; /* Центрирует содержимое по горизонтали */
-  height: 100vh; /* Высота body — вся высота окна браузера */
-  margin: 0; /* Убирает внешние отступы */
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.login-container {
-  background-color: white; /* Белый фон контейнера */
-  padding: 2rem 3rem; /* Внутренние отступы: 2rem сверху/снизу, 3rem слева/справа */
-  border-radius: 20px; /* Скруглённые углы */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Тень для создания объема */
-  width: 100%; /* Ширина по умолчанию — 100% */
-  max-width: 400px; /* Максимальная ширина — 400px */
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-h2 {
-  text-align: center; /* Выравнивание заголовка по центру */
-  margin-bottom: 1.5rem; /* Отступ снизу */
-  color: #333; /* Цвет текста — тёмно-серый */
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-form {
-  display: flex; /* Используем флекс-контейнер */
-  flex-direction: column; /* Расположение дочерних элементов вертикально */
+.form-group {
+  margin-bottom: 1rem;
 }
 
 label {
-  margin-bottom: 0.5rem; /* Отступ снизу от надписи */
-  font-weight: 600; /* Полужирное начертание */
-  color: #555; /* Цвет текста — серый */
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
 }
 
-input[type="text"],
-input[type="password"] {
-  padding: 0.75rem 1rem; /* Внутренние отступы сверху/снизу и по бокам */
-  margin-bottom: 1.2rem; /* Отступ снизу между полями */
-  border: 1px solid #ccc; /* Светло-серая рамка */
-  border-radius: 10px; /* Скруглённые углы полей */
-  font-size: 1rem; /* Размер шрифта */
-  transition: 0.3s; /* Плавное изменение при фокусе */
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #5c9ded; /* Изменение цвета рамки при фокусе */
-  outline: none; /* Убираем стандартную обводку браузера */
-  box-shadow: 0 0 5px rgba(92, 157, 237, 0.5); /* Светящаяся рамка вокруг поля */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-input[type="submit"] {
-  background-color: #5c9ded; /* Синий фон кнопки */
-  color: white; /* Белый текст */
-  padding: 0.75rem; /* Внутренние отступы */
-  border: none; /* Без рамки */
-  border-radius: 10px; /* Скруглённые углы */
-  font-size: 1rem; /* Размер текста */
-  cursor: pointer; /* Изменение курсора на "руку" */
-  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+button:hover {
+  background-color: #45a049;
 }
 
-input[type="submit"]:hover {
-  background-color: #417cd0; /* Цвет кнопки при наведении */
+.result, .error {
+  text-align: center;
+  margin-top: 1rem;
 }
 
-/* Общий контейнер для сообщений */
-.message {
-  padding: 1.7rem 2.1rem; /* Внутренние отступы */
-  margin: 1.5rem auto; /* Вертикальные отступы и автоматическое центрирование */
-  border-radius: 10px; /* Скруглённые углы */
-  max-width: 400px; /* Максимальная ширина */
-  font-size: 1.7rem; /* Размер текста */
-  font-weight: 700; /* Жирное начертание */
-  text-align: center; /* Центрирование текста */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг */
-  animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
 }
 
-/* Успешное сообщение */
-.message-success {
-  background-color: #e6f4ea; /* Светло-зеленый фон */
-  color: #237a3f; /* Тёмно-зелёный текст */
-  border: 1px solid #a5d6b2; /* Рамка зелёного цвета */
+a:hover {
+  text-decoration: underline;
 }
-
-/* Сообщение об ошибке */
-.message-error {
-  background-color: #fcebea; /* Светло-красный фон */
-  color: #b91c1c; /* Тёмно-красный текст */
-  border: 1px solid #f5c2c0; /* Рамка красного цвета */
-}
-
-/* Анимация появления */
-@keyframes fadeIn {
-  from {
-    opacity: 0; /* Полная прозрачность */
-    transform: translateY(-8px); /* Подъём вверх */
-  }
-  to {
-    opacity: 1; /* Полная видимость */
-    transform: translateY(0); /* Возврат к исходной позиции */
-  }
-}
-

@@ -1,2 +1,3 @@
-# Задание переменных окружения
-LOGIN_USER=admin LOGIN_PASS=root ./server
+make clean
+make
+./time_calculator
