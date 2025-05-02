@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "mongoose.h"
+#include "./mongoose/mongoose.h"
 
 static int uri_match(struct mg_str uri, const char *pattern) {
     size_t pattern_len = strlen(pattern);

@@ -4,7 +4,7 @@ LIBS = -lssl -lcrypto
 
 all: time_calculator
 
-time_calculator: main.c mongoose.c
+time_calculator: main.c mongoose/mongoose.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 clean:
