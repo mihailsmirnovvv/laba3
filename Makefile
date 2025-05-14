@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -g -Wall -Wextra -I. -Imongoose
 SRC = src/main.c src/handlers.c mongoose/mongoose.c
 TARGET = time_calculator
-LIBS = -lssl -lcrypto
+
 
 all: $(TARGET)
 
