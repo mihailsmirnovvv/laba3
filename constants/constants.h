@@ -1,6 +1,5 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
-
 static const char* MAIN_PAGE =
 "<!DOCTYPE html>"
 "<html lang='ru'>"
@@ -9,6 +8,15 @@ static const char* MAIN_PAGE =
 "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
 "  <title>Калькулятор времени</title>"
 "  <link rel='stylesheet' href='/css/styles.css'>"
+"  <script>"
+"    function toggleTheme() {"
+"      document.body.classList.toggle('dark-theme');"
+"      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');"
+"    }"
+"    document.addEventListener('DOMContentLoaded', () => {"
+"      if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme');"
+"    });"
+"  </script>"
 "</head>"
 "<body>"
 "  <div class='container'>"
@@ -25,9 +33,11 @@ static const char* MAIN_PAGE =
 "      <button type='submit'>Рассчитать</button>"
 "    </form>"
 "  </div>"
+"  <footer>"
+"    <p class='signature'>Выполнил: Семейкин Михаил ПВ-242</p>"
+"  </footer>"
 "</body>"
 "</html>";
-
 static const char* RESULT_TEMPLATE =
 "<!DOCTYPE html>"
 "<html lang='ru'>"
@@ -66,21 +76,4 @@ static const char* ERROR_PAGE =
 "  </div>"
 "</body>"
 "</html>";
-
-static const char* NOT_FOUND_PAGE =
-"<!DOCTYPE html>"
-"<html lang='ru'>"
-"<head>"
-"  <meta charset='UTF-8'>"
-"  <title>404</title>"
-"  <link rel='stylesheet' href='/css/styles.css'>"
-"</head>"
-"<body>"
-"  <div class='container'>"
-"    <h1>Страница не найдена</h1>"
-"    <a href='/' class='btn'>На главную</a>"
-"  </div>"
-"</body>"
-"</html>";
-
 #endif

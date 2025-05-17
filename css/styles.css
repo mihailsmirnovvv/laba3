@@ -94,3 +94,55 @@ button:hover {
     background: #2980b9;
     text-decoration: none;
 }
+
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --container-bg: #fff;
+  --button-bg: #4CAF50;
+  --button-hover: #45a049;
+  --input-border: #ccc;
+}
+
+/* Темная тема */
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --container-bg: #1e1e1e;
+  --button-bg: #2e7d32;
+  --button-hover: #1b5e20;
+  --input-border: #555;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--container-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.signature {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+  position: fixed; 
+  bottom: 20px;     
+  right: 20px;      
+  margin: 0;      
+}
