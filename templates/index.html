@@ -5,33 +5,38 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Калькулятор времени</title>
   <link rel='stylesheet' href='css/styles.css'>
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
-      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme');
-    });
-  </script>
 </head>
 <body>
-  <div class='container'>
-    <h1>Калькулятор времени в пути</h1>
-    <form method='POST' action='/calculate'>
-      <div class='form-group'>
-        <label for='distance'>Расстояние (км):</label>
-        <input type='number' id='distance' name='distance' step='0.1' min='0.1' required>
-      </div>
-      <div class='form-group'>
-        <label for='speed'>Средняя скорость (км/ч):</label>
-        <input type='number' id='speed' name='speed' step='1' min='1' required>
-      </div>
-      <button type='submit'>Рассчитать</button>
-    </form>
+  <div class='calculator'>
+    <header>
+      <h1>Калькулятор времени в пути</h1>
+    </header>
+    
+    <main>
+      <form method='POST' action='/calculate' class='calc-form'>
+        <div class='input-group'>
+          <label for='distance'>Расстояние (км):</label>
+          <input type="number" id="distance" name="distance" step="0.1" min="0.1" required
+                 placeholder="Например: 150.5"
+                 oninvalid="this.setCustomValidity('Введите число больше 0.1')" 
+                 oninput="this.setCustomValidity('')">
+        </div>
+        
+        <div class='input-group'>
+          <label for='speed'>Средняя скорость (км/ч):</label>
+          <input type="number" id="speed" name="speed" step="1" min="1" required
+                 placeholder="Например: 90"
+                 oninvalid="this.setCustomValidity('Введите целое число больше 1')"
+                 oninput="this.setCustomValidity('')">
+        </div>
+        
+        <button type='submit' class='submit-btn'>Рассчитать время</button>
+      </form>
+    </main>
+    
+    <footer>
+      <div class='signature'>Семейкин Михаил | ПВ-242</div>
+    </footer>
   </div>
-  <footer>
-    <p class='signature'>Выполнил: Семейкин Михаил ПВ-242</p>
-  </footer>
 </body>
 </html>
